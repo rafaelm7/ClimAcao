@@ -44,13 +44,13 @@ npm install
 3. Crie um arquivo `.env` na raiz do projeto com suas credenciais do Firebase e Windy API:
 
 env
-	VITE_FIREBASE_API_KEY=sua_api_key
-	VITE_FIREBASE_AUTH_DOMAIN=seu_auth_domain
-	VITE_FIREBASE_PROJECT_ID=seu_project_id
-	VITE_FIREBASE_STORAGE_BUCKET=seu_storage_bucket
-	VITE_FIREBASE_MESSAGING_SENDER_ID=seu_messaging_sender_id
-	VITE_FIREBASE_APP_ID=seu_app_id
-	VITE_WINDY_API_KEY=sua_windy_api_key
+- VITE_FIREBASE_API_KEY=sua_api_key
+- VITE_FIREBASE_AUTH_DOMAIN=seu_auth_domain
+- VITE_FIREBASE_PROJECT_ID=seu_project_id
+- VITE_FIREBASE_STORAGE_BUCKET=seu_storage_bucket
+- VITE_FIREBASE_MESSAGING_SENDER_ID=seu_messaging_sender_id
+- VITE_FIREBASE_APP_ID=seu_app_id
+- VITE_WINDY_API_KEY=sua_windy_api_key
 
 4. Inicie o servidor de desenvolvimento
 bash
