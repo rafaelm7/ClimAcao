@@ -42,6 +42,7 @@ cd climacao
 npm install
 
 3. Crie um arquivo `.env` na raiz do projeto com suas credenciais do Firebase e Windy API:
+
 env
 VITE_FIREBASE_API_KEY=sua_api_key
 VITE_FIREBASE_AUTH_DOMAIN=seu_auth_domain
