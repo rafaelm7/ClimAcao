@@ -24,13 +24,13 @@ const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen">
-      <main className="pt-16"> {/* Add padding-top here to account for navbar */}
+      <main className="pt-16">
         <section id="home" className="bg-cover bg-center text-white -mt-16" style={{backgroundImage: "url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2560&q=80')"}}>
           <div className="container mx-auto px-4 py-20 md:py-32">
-            <div className="max-w-3xl mx-auto text-center bg-black bg-opacity-50 p-8 rounded-lg">
+            <div className="max-w-3xl mx-auto text-center bg-black bg-opacity-20 p-8 rounded-lg">
               <h1 className="text-4xl md:text-5xl font-bold mb-6">Promovendo Ações Sustentáveis</h1>
-              <p className="text-xl mb-8">Junte-se à ClimAção e faça a diferença na luta contra as mudanças climáticas.</p>
-              <Link to="/register" className="bg-white text-green-600 px-6 py-3 rounded-full font-semibold hover:bg-green-100 transition duration-300">Começe Agora</Link>
+              <p className="text-xl mb-8">Junte-se à <strong>ClimAção</strong> e faça a diferença na luta contra as mudanças climáticas.</p>
+              <Link to="/register" className="bg-white text-green-600 px-6 py-3 rounded-full font-semibold hover:bg-green-600 hover:text-white transition duration-300">Comece Agora</Link>
             </div>
           </div>
         </section>

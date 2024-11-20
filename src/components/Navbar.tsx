@@ -54,13 +54,13 @@ const Navbar: React.FC = () => {
                 <>
                   <Link
                     to="/login"
-                    className="px-4 py-2 rounded-full font-semibold bg-white text-green-600 hover:bg-green-100 transition duration-300"
+                    className="px-4 py-2 rounded-full font-semibold bg-white text-green-600 hover:bg-green-700 hover:text-white transition duration-300"
                   >
                     Login
                   </Link>
                   <Link
                     to="/register"
-                    className="px-4 py-2 rounded-full font-semibold bg-white text-green-600 hover:bg-green-100 transition duration-300"
+                    className="px-4 py-2 rounded-full font-semibold bg-white text-green-600 hover:bg-green-700 hover:text-white transition duration-300"
                   >
                     Registrar
                   </Link>
@@ -110,7 +110,7 @@ const NavLink: React.FC<{ to: string; text: string; mobile?: boolean }> = ({ to,
     className={`${
       mobile
         ? 'block py-2 px-4 text-white hover:bg-green-700 rounded transition duration-300'
-        : 'text-white hover:text-green-200 transition duration-300'
+        : 'text-white hover:text-green-900 transition duration-300'
     }`}
   >
     {text}
