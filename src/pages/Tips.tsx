@@ -24,6 +24,27 @@ const allTips = [
   { icon: <Plane size={48} />, title: "Viagens Sustentáveis", tips: ["Compense as emissões de carbono de suas viagens", "Escolha destinos ecoturísticos", "Use transporte público em suas viagens"] }
 ];
 
+const TipItem: React.FC<{ icon: React.ReactNode; title: string; tips: string[] }> = ({ icon, title, tips }) => (
+  <div className="bg-green-50 p-6 rounded-lg shadow-md transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-green-100">
+    <div className="text-green-500 mb-4 transform transition-all duration-300 hover:scale-125 hover:rotate-12 inline-block">
+      {icon}
+    </div>
+    <h3 className="text-xl font-semibold mb-2 text-green-600 transition-colors duration-300 hover:text-green-700">
+      {title}
+    </h3>
+    <ul className="list-disc pl-5">
+      {tips.map((item, itemIndex) => (
+        <li 
+          key={itemIndex} 
+          className="text-gray-700 text-sm transition-all duration-300 hover:text-gray-900 hover:translate-x-1"
+        >
+          {item}
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
 const Tips: React.FC = () => {
   const [randomTips, setRandomTips] = useState<typeof allTips>([]);
 
@@ -34,18 +55,17 @@ const Tips: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold mb-6 text-center text-green-600">Dicas Sustentáveis</h2>
+      <h2 className="text-3xl font-bold mb-6 text-center text-green-600 transition-all duration-300 hover:scale-110 hover:text-green-700">
+        Dicas Sustentáveis
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {randomTips.map((tip, index) => (
-          <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-            <div className="text-green-500 mb-4">{tip.icon}</div>
-            <h3 className="text-xl font-semibold mb-2">{tip.title}</h3>
-            <ul className="list-disc pl-5">
-              {tip.tips.map((item, itemIndex) => (
-                <li key={itemIndex} className="text-sm">{item}</li>
-              ))}
-            </ul>
-          </div>
+          <TipItem
+            key={index}
+            icon={tip.icon}
+            title={tip.title}
+            tips={tip.tips}
+          />
         ))}
       </div>
     </div>

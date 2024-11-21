@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
-import { Leaf, Recycle, Zap, Droplet, Car, Plane, Beef, Flame } from 'lucide-react';
+import { Leaf, Recycle, Zap, Car, Plane, Beef, Flame } from 'lucide-react';
 
 interface UserData {
   name: string;
@@ -102,70 +102,75 @@ const Profile: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold mb-6 text-center text-green-600">Seu Perfil</h2>
-      <div className="bg-white p-6 rounded-lg shadow-md max-w-2xl mx-auto">
-        <div className="mb-4">
-          <h3 className="text-xl font-semibold mb-2">Informações Pessoais</h3>
-          <p><strong>Nome:</strong> {userData.name}</p>
-          <p><strong>E-mail:</strong> {userData.email}</p>
-          <p><strong>Ingressou em:</strong> {new Date(userData.joinDate).toLocaleDateString('pt-BR')}</p>
+      <h2 className="text-3xl font-bold mb-6 text-center text-green-600 transition-all duration-300 hover:scale-110 hover:text-green-700">
+        Seu Perfil
+      </h2>
+      <div className="bg-white p-6 rounded-lg shadow-md max-w-2xl mx-auto transform transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+        <div className="mb-4 transform transition-all duration-300 hover:translate-x-2">
+          <h3 className="text-xl font-semibold mb-2 text-green-600 transition-colors duration-300 hover:text-green-700">Informações Pessoais</h3>
+          <p className="transition-all duration-300 hover:text-green-600"><strong>Nome:</strong> {userData.name}</p>
+          <p className="transition-all duration-300 hover:text-green-600"><strong>E-mail:</strong> {userData.email}</p>
+          <p className="transition-all duration-300 hover:text-green-600"><strong>Ingressou em:</strong> {new Date(userData.joinDate).toLocaleDateString('pt-BR')}</p>
         </div>
-        <div className="mb-4">
-          <h3 className="text-xl font-semibold mb-2">Hábitos Ecológicos</h3>
-          <p>
-            <span className="mr-2">{getTransportationIcon(userData.transportationMode)}</span>
+
+        <div className="mb-4 transform transition-all duration-300 hover:translate-x-2">
+          <h3 className="text-xl font-semibold mb-2 text-green-600 transition-colors duration-300 hover:text-green-700">Hábitos Ecológicos</h3>
+          <p className="transition-all duration-300 hover:text-green-600">
+            <span className="mr-2 transform inline-block transition-all duration-300 hover:scale-125 hover:rotate-12">{getTransportationIcon(userData.transportationMode)}</span>
             <strong>Transporte Principal:</strong> {translateTransportationMode(userData.transportationMode)}
           </p>
-          <p>
-            <Zap className="inline-block mr-2 text-yellow-500" />
+          <p className="transition-all duration-300 hover:text-green-600">
+            <Zap className="inline-block mr-2 text-yellow-500 transform transition-all duration-300 hover:scale-125 hover:rotate-12" />
             <strong>Eletrodomésticos Eficientes:</strong> {translateEnergySaving(userData.energySaving)}
           </p>
-          <p>
-            <Recycle className="inline-block mr-2 text-green-500" />
+          <p className="transition-all duration-300 hover:text-green-600">
+            <Recycle className="inline-block mr-2 text-green-500 transform transition-all duration-300 hover:scale-125 hover:rotate-12" />
             <strong>Frequência de Reciclagem:</strong> {translateRecycling(userData.recycling)}
           </p>
         </div>
+
         {userData.calculatorData && (
-          <div className="mb-4">
-            <h3 className="text-xl font-semibold mb-2">Dados da Pegada de Carbono</h3>
-            <p>
-              <Leaf className="inline-block mr-2 text-green-500" />
+          <div className="mb-4 transform transition-all duration-300 hover:translate-x-2">
+            <h3 className="text-xl font-semibold mb-2 text-green-600 transition-colors duration-300 hover:text-green-700">Dados da Pegada de Carbono</h3>
+            <p className="transition-all duration-300 hover:text-green-600">
+              <Leaf className="inline-block mr-2 text-green-500 transform transition-all duration-300 hover:scale-125 hover:rotate-12" />
               <strong>Pegada de Carbono:</strong> {userData.calculatorData.carbonFootprint.toFixed(2)} toneladas CO2/ano
             </p>
-            <p>
-              <Zap className="inline-block mr-2 text-yellow-500" />
+            <p className="transition-all duration-300 hover:text-green-600">
+              <Zap className="inline-block mr-2 text-yellow-500 transform transition-all duration-300 hover:scale-125 hover:rotate-12" />
               <strong>Consumo de Eletricidade:</strong> {userData.calculatorData.electricity} kWh/mês
             </p>
-            <p>
-              <Flame className="inline-block mr-2 text-orange-500" />
+            <p className="transition-all duration-300 hover:text-green-600">
+              <Flame className="inline-block mr-2 text-orange-500 transform transition-all duration-300 hover:scale-125 hover:rotate-12" />
               <strong>Consumo de Gás:</strong> {userData.calculatorData.gas} m³/mês
             </p>
-            <p>
-              <Car className="inline-block mr-2 text-blue-500" />
+            <p className="transition-all duration-300 hover:text-green-600">
+              <Car className="inline-block mr-2 text-blue-500 transform transition-all duration-300 hover:scale-125 hover:rotate-12" />
               <strong>Distância Percorrida de Carro:</strong> {userData.calculatorData.car} km/mês
             </p>
-            <p>
-              <Plane className="inline-block mr-2 text-gray-500" />
+            <p className="transition-all duration-300 hover:text-green-600">
+              <Plane className="inline-block mr-2 text-gray-500 transform transition-all duration-300 hover:scale-125 hover:rotate-12" />
               <strong>Voos por Ano:</strong> {userData.calculatorData.flights}
             </p>
-            <p>
-              <Beef className="inline-block mr-2 text-red-500" />
+            <p className="transition-all duration-300 hover:text-green-600">
+              <Beef className="inline-block mr-2 text-red-500 transform transition-all duration-300 hover:scale-125 hover:rotate-12" />
               <strong>Consumo de Carne Vermelha:</strong> {userData.calculatorData.redMeat} g/semana
             </p>
-            <p><strong>Último Cálculo:</strong> {new Date(userData.calculatorData.lastCalculated).toLocaleString('pt-BR')}</p>
+            <p className="transition-all duration-300 hover:text-green-600"><strong>Último Cálculo:</strong> {new Date(userData.calculatorData.lastCalculated).toLocaleString('pt-BR')}</p>
           </div>
         )}
-        <div>
-          <h3 className="text-xl font-semibold mb-2">Pontuação Ecológica</h3>
+
+        <div className="transform transition-all duration-300 hover:translate-x-2">
+          <h3 className="text-xl font-semibold mb-2 text-green-600 transition-colors duration-300 hover:text-green-700">Pontuação Ecológica</h3>
           <div className="flex items-center">
-            <Leaf className="text-green-500 mr-2" />
-            <div className="bg-gray-200 h-4 rounded-full flex-grow">
+            <Leaf className="text-green-500 mr-2 transform transition-all duration-300 hover:scale-125 hover:rotate-12" />
+            <div className="bg-gray-200 h-4 rounded-full flex-grow overflow-hidden">
               <div 
-                className="bg-green-500 h-4 rounded-full" 
+                className="bg-green-500 h-4 rounded-full transition-all duration-1000 ease-out"
                 style={{width: `${calculateEcoScore(userData)}%`}}
               ></div>
             </div>
-            <span className="ml-2 font-semibold">{calculateEcoScore(userData)}%</span>
+            <span className="ml-2 font-semibold transition-all duration-300 hover:text-green-600">{calculateEcoScore(userData)}%</span>
           </div>
         </div>
       </div>

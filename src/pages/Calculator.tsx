@@ -54,7 +54,7 @@ const Calculator: React.FC = () => {
           calculatorData
         });
         setShowSavePrompt(false);
-        toast.success('Informações da calculadora salvas no seu perfil!', {
+        toast.success('Informações da calculadora salvas no seu perfil', {
           position: "top-center",
           autoClose: 3000,
           hideProgressBar: false,
@@ -78,12 +78,14 @@ const Calculator: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold mb-6 text-center text-green-600">Calculadora de Pegada de Carbono</h2>
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
+      <h2 className="text-3xl font-bold mb-6 text-center text-green-600 transition-all duration-300 hover:scale-110 hover:text-green-700">
+        Calculadora de Pegada de Carbono
+      </h2>
+      <form onSubmit={handleSubmit} className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md transform transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
         <InputField
           id="electricity"
           label="Uso Mensal de Eletricidade (kWh)"
-          icon={<Zap className="text-yellow-500" size={24} />}
+          icon={<Zap className="text-yellow-500 transform transition-all duration-300 group-hover:scale-125 group-hover:rotate-12" size={24} />}
         />
         <InputField
           id="gas"
@@ -105,21 +107,21 @@ const Calculator: React.FC = () => {
           label="Consumo Semanal de Carne Vermelha (g)"
           icon={<Beef className="text-red-500" size={24} />}
         />
-        <button type="submit" className="w-full bg-green-500 text-white py-3 rounded-lg hover:bg-green-600 transition-colors font-bold text-lg mt-6">
+        <button type="submit" className="w-full bg-green-500 text-white py-3 rounded-lg transition-all duration-300 hover:bg-green-600 hover:scale-105 hover:shadow-lg font-bold text-lg mt-6">
           Calcular
         </button>
       </form>
 
       {result !== null && (
-        <div className="mt-8 max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-xl font-bold mb-4">Sua Pegada de Carbono</h3>
-          <p className="text-2xl font-bold text-green-600 mb-4">{result.toFixed(2)} toneladas CO2/ano</p>
+        <div className="mt-8 max-w-md mx-auto bg-white p-6 rounded-lg shadow-md transform transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+          <h3 className="text-xl font-bold mb-4 text-green-600 transition-colors duration-300 hover:text-green-700">Sua Pegada de Carbono</h3>
+          <p className="text-2xl font-bold text-green-600 mb-4 transition-all duration-300 hover:scale-105">{result.toFixed(2)} toneladas CO2/ano</p>
           {tips.length > 0 && (
-            <div>
-              <h4 className="font-bold mb-2">Dicas para Reduzir sua Pegada:</h4>
+            <div className="transform transition-all duration-300 hover:translate-x-2">
+              <h4 className="font-bold mb-2 text-green-600 transition-colors duration-300 hover:text-green-700">Dicas para Reduzir sua Pegada:</h4>
               <ul className="list-disc pl-5">
                 {tips.map((tip, index) => (
-                  <li key={index}>{tip}</li>
+                  <li key={index} className="text-gray-700 transition-all duration-300 hover:text-green-600 hover:translate-x-1">{tip}</li>
                 ))}
               </ul>
             </div>
@@ -127,18 +129,14 @@ const Calculator: React.FC = () => {
           {showSavePrompt && (
             <button
               onClick={handleSaveToProfile}
-              className="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors font-bold"
+              className="mt-4 w-full bg-blue-500 text-white py-2 rounded-lg transition-all duration-300 hover:bg-blue-600 hover:scale-105 hover:shadow-lg font-bold"
             >
               Salvar no Perfil
             </button>
           )}
         </div>
       )}
-      <ToastContainer
-  position="top-center"
-  style={{ top: '60px' }} // Adjust this value based on your header height
-  rtl
-/>
+      <ToastContainer position="top-center" style={{ top: '60px' }} rtl />
     </div>
   );
 };
@@ -150,8 +148,8 @@ interface InputFieldProps {
 }
 
 const InputField: React.FC<InputFieldProps> = ({ id, label, icon }) => (
-  <div className="mb-4">
-    <label htmlFor={id} className="block mb-2 font-semibold text-gray-700">{label}</label>
+  <div className="mb-4 group transform transition-all duration-300 hover:translate-x-2">
+    <label htmlFor={id} className="block mb-2 font-semibold text-gray-700 transition-colors duration-300 group-hover:text-green-600">{label}</label>
     <div className="relative">
       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
         {icon}
@@ -160,7 +158,7 @@ const InputField: React.FC<InputFieldProps> = ({ id, label, icon }) => (
         type="number"
         id={id}
         name={id}
-        className="w-full pl-12 pr-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+        className="w-full pl-12 pr-3 py-2 border rounded-lg transition-all duration-300 focus:ring-2 focus:ring-green-500 focus:border-green-500 hover:border-green-400"
         required
       />
     </div>
