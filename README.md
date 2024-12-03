@@ -21,6 +21,7 @@ ClimAção é uma aplicação web focada em conscientização ambiental e açõe
 - React Toastify
 - Windy API
 - Leaflet Maps
+- Vercel
 
 ## Como Começar 🏁
 
